@@ -1,6 +1,7 @@
 package application;
 
 import chess.ChessPiece;
+import chess.Color;
 
 public class UI {
 
@@ -33,16 +34,19 @@ public class UI {
             }
             System.out.println();
         }
-        System.out.println("  a b c d e f g h");
+        System.out.println("   a b c d e f g h");
     }
 
-    public static void printPiece(ChessPiece piece) {
-        if (piece == null) {
-            System.out.print("_");
-        }
-        else {
-            System.out.print(piece);
-        }
+    private static void printPiece(ChessPiece piece) {
         System.out.print(" ");
+        if (piece == null) {
+            System.out.print("-");
+        } else {
+            if (piece.getColor() == Color.WHITE) {
+                System.out.print(ANSI_WHITE + piece + ANSI_RESET);
+            } else {
+                System.out.print(ANSI_YELLOW + piece + ANSI_RESET);
+            }
+        }
     }
 }
