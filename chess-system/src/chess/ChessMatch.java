@@ -8,6 +8,8 @@ import chess.pieces.Rook;
 
 public class ChessMatch {
 
+    private int turn;
+    private Color currentPlayer;
     private Board board;
 
     public ChessMatch() {
@@ -25,6 +27,9 @@ public class ChessMatch {
         return mat;
     }
 
+    public int getTurn() {
+        return turn;
+    }
     public boolean[][] possibleMoves(ChessPosition sourcePosition) {
         Position position = sourcePosition.toPosition();
         validateSourcePosition(position);
